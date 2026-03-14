@@ -120,12 +120,11 @@ fun HomeScreen(
 
         //Seccion tarjetas
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
                 .height(300.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // Tarjeta de Actividad
+
             Card(
                 colors = CardDefaults.cardColors(containerColor = Color(0xFFE0F2F1)),
                 shape = RoundedCornerShape(24.dp),
