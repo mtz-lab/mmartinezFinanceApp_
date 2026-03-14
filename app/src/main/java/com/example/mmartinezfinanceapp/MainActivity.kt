@@ -158,9 +158,10 @@ fun HomeScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        //Seccion transacciones
+        //transacciones
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
