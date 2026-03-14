@@ -25,7 +25,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mmartinezfinanceapp.ui.theme.MMartinezFinanceAppTheme
 
-// ------------------ DATA CLASSES ------------------
 data class User(val name: String, val balance: Double)
 
 data class Transaction(
@@ -36,7 +35,7 @@ data class Transaction(
     @DrawableRes val iconRes: Int
 )
 
-// ------------------ MAIN ACTIVITY ------------------
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +60,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// ------------------ HOME SCREEN ------------------
+// homescreen
 @Composable
 fun HomeScreen(
     user: User,
@@ -70,7 +69,7 @@ fun HomeScreen(
 ) {
     Column(modifier = modifier.padding(16.dp)) {
 
-        // --- HEADER ---
+        //Seccion de header
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -79,15 +78,14 @@ fun HomeScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                // Círculo de fondo con el icono de usuario
                 Box(
                     modifier = Modifier
                         .size(50.dp)
-                        .background(Color(0xFFF5E6DA), CircleShape), // Color crema de la foto
+                        .background(Color(0xFFF5E6DA), CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_activity_faceee), // O usa Icons.Default.Person
+                        painter = painterResource(id = R.drawable.ic_activity_faceee),
                         contentDescription = "Profile Picture",
                         modifier = Modifier.size(32.dp),
                         tint = Color.Black
@@ -121,14 +119,14 @@ fun HomeScreen(
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        // --- TARJETAS DE RESUMEN (Diseño 1 grande, 2 pequeñas) ---
+        //Seccion tarjetas
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(300.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // Tarjeta de Actividad (Grande)
+            // Tarjeta de Actividad
             Card(
                 colors = CardDefaults.cardColors(containerColor = Color(0xFFE0F2F1)),
                 shape = RoundedCornerShape(24.dp),
@@ -150,7 +148,7 @@ fun HomeScreen(
                 }
             }
 
-            // Columna de Ventas y Ganancias
+            // Columnas de Ventas y Ganancias
             Column(
                 modifier = Modifier.weight(1f).fillMaxHeight(),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -162,7 +160,7 @@ fun HomeScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // --- SECCIÓN TRANSACCIONES ---
+        // commit transacciones - seccion transacciones
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -186,7 +184,6 @@ fun HomeScreen(
     }
 }
 
-// ------------------ COMPONENTES ADICIONALES ------------------
 
 @Composable
 fun SmallSummaryCard(title: String, amount: String, color: Color, modifier: Modifier) {
@@ -212,7 +209,7 @@ fun TransactionItem(transaction: Transaction) {
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Icono con círculo negro como en la foto
+
         Box(
             modifier = Modifier
                 .size(50.dp)
@@ -246,7 +243,6 @@ fun TransactionItem(transaction: Transaction) {
     }
 }
 
-// ------------------ PREVIEW ------------------
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
